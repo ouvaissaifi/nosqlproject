@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+        <h1 class="display-4"><strong>Welcome to Story Blog!</strong></h1>
+        {% for blog in blogs %}
+            <h3><a class="post-title" href="/posts/{{ blog._id }}">{{ blog.title }}</a></h3>
+            <p>{{ blog.description }}</p>
+            <small class="text-muted">by: {{ blog.author }}</small>
+            <hr>
+        {% endfor %}
+
+    </div>
+{% endblock %}

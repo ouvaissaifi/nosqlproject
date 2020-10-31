@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+        <h2>{{ title }}</h2>
+        <hr>
+        {% if current_user == author %}
+            <a href="/posts/new/{{ blog_id }}"><button class="btn btn-outline-primary btn-sm">Create new post</button> </a>
+        {% endif %}
+        {% if posts|length < 1%}
+            <p>There are no posts to show.</p>
+        {% else %}
+            {% for post in posts %}
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.content }}</p>
+                <p>{{ post.author }}</p>
+                {% if current_user == author %}
+                    <a href="/posts/delete/{{ post._id }}"> <button class="btn btn-outline-danger btn-sm">Delete post</button> </a>
+                {% endif %}
+                <hr>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

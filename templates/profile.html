@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+        <h1 class="display-4">Hello, {{ email }}</h1>
+        <a href="/blogs/new"><button class="btn btn-outline-primary btn-sm">Create new blog</button> </a>
+        <hr>
+        <h2> Your blogs: </h2>
+        <hr>
+        {% for blog in blogs %}
+            <h3><a class="post-title" href="/posts/{{ blog._id }}">{{ blog.title }}</a></h3>
+            <p>{{ blog.description }}</p>
+            <a href="/blogs/delete/{{ blog._id }}"> <button class="btn btn-outline-danger btn-sm">Delete blog</button> </a>
+            <hr>
+        {% endfor %}
+    </div>
+{% endblock %}
