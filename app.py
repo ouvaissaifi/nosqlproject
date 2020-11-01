@@ -10,7 +10,7 @@ class Database(object):
     @staticmethod
     def initialize():
         client = pymongo.MongoClient(Database.uri)
-        Database.DATABASE = client['data_base']
+        Database.DATABASE = client['amo_blogs']
 
     @staticmethod
     def insert(collection, data):
@@ -185,7 +185,7 @@ class User(object):
                         data=self.json())
 
 app = Flask(__name__)
-app.secret_key = 'Nothing'
+app.secret_key = 'amo_blogs_secrettkey'
 
 @app.before_first_request
 def initialize_database():
