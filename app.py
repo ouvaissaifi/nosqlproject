@@ -188,7 +188,7 @@ app = Flask(__name__)
 app.secret_key = 'amo_blogs_secrettkey'
 
 @app.before_first_request
-def initialize_database():
+def initialize_database(): #initialise database
     Database.initialize()
 
 @app.route('/')
